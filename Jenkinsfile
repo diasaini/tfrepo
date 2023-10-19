@@ -7,5 +7,17 @@ pipeline {
       }
     }
 
+    stage('tfplan') {
+      steps {
+        sh 'terraform plan'
+      }
+    }
+
+    stage('tfapply') {
+      steps {
+        sh 'terraform apply '
+      }
+    }
+
   }
 }
