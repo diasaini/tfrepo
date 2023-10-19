@@ -7,13 +7,11 @@ provider "google" {
 
   
 
-data "google_compute_network" "dep1" {
 
-    name = "testvpc1"
-  
-}
+resource "google_compute_network" "dep1" {
 
-output "out_var" {
-    value = data.google_compute_network.dep1.id
+    name = "vpc1-5024852"
+    routing_mode = "GLOBAL"
+    auto_create_subnetworks = false
   
 }
