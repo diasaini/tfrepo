@@ -12,6 +12,6 @@ output "outvars1" {
 
 output "outvars2" {
 
-value = [for i in var.var.var1: upper(i) if length(i) > 6]
+value = [for i in var.var1: upper(i) if length(i) > 6]
   
 }
