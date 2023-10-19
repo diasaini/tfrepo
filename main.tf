@@ -1,17 +1,19 @@
-variable "var1" {
-    type = list
-    default = ["myresgrp1","myresgrp2","myresgrp3"]
+provider "google" {
+    project = "tfgcptraining"
+    region =  "us-east4"
+    zone = "us-east4-a"
   
 }
 
-output "outvars1" {
+  
 
-    value = [for i in var.var1 : upper(i)]
+data "google_compute_network" "dep1" {
+
+    name = "testvpc1"
   
 }
 
-output "outvars2" {
-
-value = [for i in var.var1: upper(i) if length(i) > 6]
+output "out_var" {
+    value = data.google_compute_network.dep1.id
   
 }
