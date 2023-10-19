@@ -1,17 +1,16 @@
-provider "google" {
-    project = "tfgcptraining"
-    region =  "us-east4"
-    zone = "us-east4-a"
-  
+
+variable "var1" {
+    type = list
+    default = ["myresgrp1" , "myresgrp2" , "rgrp3"]
 }
 
-  
 
 
-resource "google_compute_network" "dep1" {
+output "outvars1" {
+    value = [for i in var.var1 : upper(i)]
+}
 
-    name = "vpc1-5024852"
-    routing_mode = "GLOBAL"
-    auto_create_subnetworks = false
-  
+
+output "outvars2" {
+    value = [for i in var.var1 : upper(i) if length(i) > 6]
 }
